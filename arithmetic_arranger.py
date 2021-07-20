@@ -47,20 +47,20 @@ def arithmetic_arranger(problems, solution=False): # By default not calculating 
       for i in range(spaces_len): # Arranging the first number.
         num = str(eqs[i][0])
         arranged_problems += " "*(spaces[i]-len(num)) + num
-        if i < len(spaces)-1:
+        if i < spaces_len-1:
           arranged_problems += " "*4
       arranged_problems += "\n"
 
       for i in range(spaces_len): # Arranging the second number with the operator.
         num = str(eqs[i][2])
         arranged_problems += eqs[i][1] + " "*(spaces[i]-len(num)-1) + num
-        if i < len(spaces)-1:
+        if i < spaces_len-1:
           arranged_problems += " "*4
         
       arranged_problems += "\n"
       for i in range(spaces_len):  # Adding the dashes.
         arranged_problems += "-"*spaces[i] 
-        if i < len(spaces)-1:
+        if i < spaces_len-1:
           arranged_problems += " "*4
       
       if solution: # If solution is True arrange the solution else don't.
@@ -68,9 +68,9 @@ def arithmetic_arranger(problems, solution=False): # By default not calculating 
         for i in range(spaces_len):
           ans = str(answers[i])
           arranged_problems += " "*(spaces[i]-len(ans)) + ans
-          if i < len(spaces)-1:
+          if i < spaces_len-1:
             arranged_problems += " "*4
     return arranged_problems
 
-print(arithmetic_arranger(["3 + 855", "5000 + 2", "45 + 43", "123 + 49"],True))
+print(arithmetic_arranger(["3 + 211", "500 - 122", "415 + 143", "1123 + 149"],True))
 
