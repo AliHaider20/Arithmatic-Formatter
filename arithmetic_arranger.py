@@ -10,7 +10,7 @@ def arithmetic_arranger(problems, solution=False): # By default not calculating 
       arranged_problems = ""              # Creating a string variable for the final equation.
       check = True                        # Defaulting check value to True.
       for prob in problems: 
-        num1, op, num2 = prob.split(" ")
+        num1, op, num2 = prob.strip().split()
         # Checks if the equation contains only numbers.
         if num1.isdigit() and num2.isdigit():
           eqs.append([num1,op,num2])        # Adding equations.
@@ -24,11 +24,6 @@ def arithmetic_arranger(problems, solution=False): # By default not calculating 
         if len(num1) > 4 or len(num2) > 4:
           arranged_problems += "Error: Numbers cannot be more than four digits.\n"
           check = False
-
-      # Checks if there more than 5 equations (problems).
-      if len(eqs) > 5: 
-        arranged_problems += "Error: Too many problems.\n"
-        check = False
         
       # Checks if the equations contains * or /.
       if any([eq[1] in ["/", "*"] for eq in eqs]): 
@@ -73,4 +68,3 @@ def arithmetic_arranger(problems, solution=False): # By default not calculating 
     return arranged_problems
 
 print(arithmetic_arranger(["3 + 211", "500 - 122", "415 + 143", "1123 + 149"],True))
-
